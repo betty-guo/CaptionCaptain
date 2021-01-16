@@ -14,6 +14,14 @@ class MainImageSelectorViewController: UIViewController {
     var resultsText: [String] = [String]() {
         didSet {
             print(resultsText)
+            getCaption(for: getCaptionRequest(words: resultsText)) { [weak self] (result) in
+                switch result {
+                case .success(let response):
+                    return
+                case .failure(let error):
+                    return
+                }
+            }
         }
     }
 
