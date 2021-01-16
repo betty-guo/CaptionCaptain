@@ -22,13 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainVC = MainImageSelectorViewController()
         let leaderBoardVC = UITableViewController()
 
-        let navigationController: UINavigationController = {
-            let navigationController = UINavigationController()
-            navigationController.viewControllers = [mainVC]
-            navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
-            return navigationController
-        }()
-
         let tabBarController = UITabBarController()
 
         tabBarController.selectedIndex = 1

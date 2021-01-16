@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,14 @@
 		0B10862925B29F1B00DBE05C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10862725B29F1B00DBE05C /* LaunchScreen.storyboard */; };
 		0B10865C25B2A14700DBE05C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B10865B25B2A14700DBE05C /* HomeView.swift */; };
 		0B10866125B2A51F00DBE05C /* MainImageSelecterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B10866025B2A51F00DBE05C /* MainImageSelecterViewController.swift */; };
+		0B10866625B3551C00DBE05C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B10866525B3551B00DBE05C /* GoogleService-Info.plist */; };
+		0B10866725B3551C00DBE05C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B10866525B3551B00DBE05C /* GoogleService-Info.plist */; };
+		0B10866825B3551C00DBE05C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B10866525B3551B00DBE05C /* GoogleService-Info.plist */; };
+		0BD2A83E25B3683D001081C2 /* MLKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD2A83D25B3683D001081C2 /* MLKitExtension.swift */; };
+		0BD2A84625B3691D001081C2 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD2A84525B3691D001081C2 /* UIUtilities.swift */; };
+		0C88C148664C445E711BB738 /* Pods_UglySweaterApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D024BC637C72A0A03086BC7 /* Pods_UglySweaterApp.framework */; };
+		133467919F858034DA4EC5D8 /* Pods_UglySweaterApp_UglySweaterAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76BE04E8EB082F033AAAC6 /* Pods_UglySweaterApp_UglySweaterAppUITests.framework */; };
+		676776E84F304AE338BEEE38 /* Pods_UglySweaterAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C518D3D5E7F9F4A8EFDEDE7 /* Pods_UglySweaterAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,18 @@
 		0B10863A25B29F1C00DBE05C /* UglySweaterAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UglySweaterAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B10865B25B2A14700DBE05C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0B10866025B2A51F00DBE05C /* MainImageSelecterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainImageSelecterViewController.swift; sourceTree = "<group>"; };
+		0B10866525B3551B00DBE05C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0BD2A83D25B3683D001081C2 /* MLKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitExtension.swift; sourceTree = "<group>"; };
+		0BD2A84525B3691D001081C2 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		18CDC2DDD91E4C2E0FF1631E /* Pods-UglySweaterApp-UglySweaterAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UglySweaterApp-UglySweaterAppUITests.release.xcconfig"; path = "Target Support Files/Pods-UglySweaterApp-UglySweaterAppUITests/Pods-UglySweaterApp-UglySweaterAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1C518D3D5E7F9F4A8EFDEDE7 /* Pods_UglySweaterAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UglySweaterAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D024BC637C72A0A03086BC7 /* Pods_UglySweaterApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UglySweaterApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E76BE04E8EB082F033AAAC6 /* Pods_UglySweaterApp_UglySweaterAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UglySweaterApp_UglySweaterAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E07A6CD02BEB27283C60913 /* Pods-UglySweaterApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UglySweaterApp.release.xcconfig"; path = "Target Support Files/Pods-UglySweaterApp/Pods-UglySweaterApp.release.xcconfig"; sourceTree = "<group>"; };
+		9DBE30C9AB377AB2DA2B13EB /* Pods-UglySweaterAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UglySweaterAppTests.debug.xcconfig"; path = "Target Support Files/Pods-UglySweaterAppTests/Pods-UglySweaterAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AA0965BB36D6A07ACC06D9F2 /* Pods-UglySweaterApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UglySweaterApp.debug.xcconfig"; path = "Target Support Files/Pods-UglySweaterApp/Pods-UglySweaterApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DCFCDD417F506B9DF312F170 /* Pods-UglySweaterAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UglySweaterAppTests.release.xcconfig"; path = "Target Support Files/Pods-UglySweaterAppTests/Pods-UglySweaterAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		F4B9C2BE78C00A1332DD3FA4 /* Pods-UglySweaterApp-UglySweaterAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UglySweaterApp-UglySweaterAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-UglySweaterApp-UglySweaterAppUITests/Pods-UglySweaterApp-UglySweaterAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C88C148664C445E711BB738 /* Pods_UglySweaterApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				676776E84F304AE338BEEE38 /* Pods_UglySweaterAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				133467919F858034DA4EC5D8 /* Pods_UglySweaterApp_UglySweaterAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +102,8 @@
 			children = (
 				0B10861825B29F1900DBE05C /* UglySweaterApp */,
 				0B10861725B29F1900DBE05C /* Products */,
+				44CB9A0809FA80823A2EFCAB /* Pods */,
+				FFBAB63F592CC3183B5988FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +122,8 @@
 			children = (
 				0B10861925B29F1900DBE05C /* AppDelegate.swift */,
 				0B10861B25B29F1900DBE05C /* SceneDelegate.swift */,
+				0BD2A83D25B3683D001081C2 /* MLKitExtension.swift */,
+				0BD2A84525B3691D001081C2 /* UIUtilities.swift */,
 				0B10866025B2A51F00DBE05C /* MainImageSelecterViewController.swift */,
 				0B10865B25B2A14700DBE05C /* HomeView.swift */,
 				0B10861D25B29F1900DBE05C /* ViewController.swift */,
@@ -104,8 +131,32 @@
 				0B10862725B29F1B00DBE05C /* LaunchScreen.storyboard */,
 				0B10862A25B29F1B00DBE05C /* Info.plist */,
 				0B10862225B29F1900DBE05C /* UglySweaterApp.xcdatamodeld */,
+				0B10866525B3551B00DBE05C /* GoogleService-Info.plist */,
 			);
 			path = UglySweaterApp;
+			sourceTree = "<group>";
+		};
+		44CB9A0809FA80823A2EFCAB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA0965BB36D6A07ACC06D9F2 /* Pods-UglySweaterApp.debug.xcconfig */,
+				8E07A6CD02BEB27283C60913 /* Pods-UglySweaterApp.release.xcconfig */,
+				F4B9C2BE78C00A1332DD3FA4 /* Pods-UglySweaterApp-UglySweaterAppUITests.debug.xcconfig */,
+				18CDC2DDD91E4C2E0FF1631E /* Pods-UglySweaterApp-UglySweaterAppUITests.release.xcconfig */,
+				9DBE30C9AB377AB2DA2B13EB /* Pods-UglySweaterAppTests.debug.xcconfig */,
+				DCFCDD417F506B9DF312F170 /* Pods-UglySweaterAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FFBAB63F592CC3183B5988FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D024BC637C72A0A03086BC7 /* Pods_UglySweaterApp.framework */,
+				6E76BE04E8EB082F033AAAC6 /* Pods_UglySweaterApp_UglySweaterAppUITests.framework */,
+				1C518D3D5E7F9F4A8EFDEDE7 /* Pods_UglySweaterAppTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B10864325B29F1C00DBE05C /* Build configuration list for PBXNativeTarget "UglySweaterApp" */;
 			buildPhases = (
+				11877DD1DBC15B3DA2236464 /* [CP] Check Pods Manifest.lock */,
 				0B10861225B29F1900DBE05C /* Sources */,
 				0B10861325B29F1900DBE05C /* Frameworks */,
 				0B10861425B29F1900DBE05C /* Resources */,
+				D49E841D9756702FE7676710 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +185,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B10864625B29F1C00DBE05C /* Build configuration list for PBXNativeTarget "UglySweaterAppTests" */;
 			buildPhases = (
+				90A30E8819704A2227B4032B /* [CP] Check Pods Manifest.lock */,
 				0B10862B25B29F1C00DBE05C /* Sources */,
 				0B10862C25B29F1C00DBE05C /* Frameworks */,
 				0B10862D25B29F1C00DBE05C /* Resources */,
@@ -150,9 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B10864925B29F1C00DBE05C /* Build configuration list for PBXNativeTarget "UglySweaterAppUITests" */;
 			buildPhases = (
+				8E86BDA9F344BD7C1C31FE9C /* [CP] Check Pods Manifest.lock */,
 				0B10863625B29F1C00DBE05C /* Sources */,
 				0B10863725B29F1C00DBE05C /* Frameworks */,
 				0B10863825B29F1C00DBE05C /* Resources */,
+				576463E3AB4EB8B1DBEBD11F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -213,6 +269,7 @@
 			files = (
 				0B10862925B29F1B00DBE05C /* LaunchScreen.storyboard in Resources */,
 				0B10862625B29F1B00DBE05C /* Assets.xcassets in Resources */,
+				0B10866625B3551C00DBE05C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B10866725B3551C00DBE05C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,10 +285,114 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B10866825B3551C00DBE05C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11877DD1DBC15B3DA2236464 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UglySweaterApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		576463E3AB4EB8B1DBEBD11F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UglySweaterApp-UglySweaterAppUITests/Pods-UglySweaterApp-UglySweaterAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UglySweaterApp-UglySweaterAppUITests/Pods-UglySweaterApp-UglySweaterAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UglySweaterApp-UglySweaterAppUITests/Pods-UglySweaterApp-UglySweaterAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E86BDA9F344BD7C1C31FE9C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UglySweaterApp-UglySweaterAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90A30E8819704A2227B4032B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UglySweaterAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D49E841D9756702FE7676710 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UglySweaterApp/Pods-UglySweaterApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UglySweaterApp/Pods-UglySweaterApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UglySweaterApp/Pods-UglySweaterApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B10861225B29F1900DBE05C /* Sources */ = {
@@ -239,9 +401,11 @@
 			files = (
 				0B10862425B29F1900DBE05C /* UglySweaterApp.xcdatamodeld in Sources */,
 				0B10861E25B29F1900DBE05C /* ViewController.swift in Sources */,
+				0BD2A83E25B3683D001081C2 /* MLKitExtension.swift in Sources */,
 				0B10866125B2A51F00DBE05C /* MainImageSelecterViewController.swift in Sources */,
 				0B10861A25B29F1900DBE05C /* AppDelegate.swift in Sources */,
 				0B10865C25B2A14700DBE05C /* HomeView.swift in Sources */,
+				0BD2A84625B3691D001081C2 /* UIUtilities.swift in Sources */,
 				0B10861C25B29F1900DBE05C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +569,7 @@
 		};
 		0B10864425B29F1C00DBE05C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA0965BB36D6A07ACC06D9F2 /* Pods-UglySweaterApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -424,6 +589,7 @@
 		};
 		0B10864525B29F1C00DBE05C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E07A6CD02BEB27283C60913 /* Pods-UglySweaterApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,6 +609,7 @@
 		};
 		0B10864725B29F1C00DBE05C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DBE30C9AB377AB2DA2B13EB /* Pods-UglySweaterAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -465,6 +632,7 @@
 		};
 		0B10864825B29F1C00DBE05C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCFCDD417F506B9DF312F170 /* Pods-UglySweaterAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +655,7 @@
 		};
 		0B10864A25B29F1C00DBE05C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4B9C2BE78C00A1332DD3FA4 /* Pods-UglySweaterApp-UglySweaterAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -507,6 +676,7 @@
 		};
 		0B10864B25B29F1C00DBE05C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18CDC2DDD91E4C2E0FF1631E /* Pods-UglySweaterApp-UglySweaterAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'UglySweaterApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for UglySweaterApp
+	pod 'Firebase/MLVision'
+
+	pod 'Firebase/Analytics'
+
+  target 'UglySweaterAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'UglySweaterAppUITests' do
+    # Pods for testing
+  end
+
+end

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>297280452953-qebvj1dmkrvmrfr5p62qqtpbieq7lb9v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.297280452953-qebvj1dmkrvmrfr5p62qqtpbieq7lb9v</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBt0G_LRHatsBOKKL7931ANvjqaSb3IolM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>297280452953</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.cristianPalage.UglySweaterApp</string>
+	<key>PROJECT_ID</key>
+	<string>imagecaptionapp-a4e0a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>imagecaptionapp-a4e0a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:297280452953:ios:27d18c0b9ae34a4e84f448</string>
+</dict>
+</plist>

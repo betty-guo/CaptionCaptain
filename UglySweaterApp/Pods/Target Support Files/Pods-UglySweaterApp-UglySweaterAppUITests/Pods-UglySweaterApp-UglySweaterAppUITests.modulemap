@@ -1,0 +1,6 @@
+framework module Pods_UglySweaterApp_UglySweaterAppUITests {
+  umbrella header "Pods-UglySweaterApp-UglySweaterAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
