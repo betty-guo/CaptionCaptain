@@ -3,7 +3,9 @@ const router = express.Router();
 const { getCaption } = require("../db/caption");
 
 router.get("/", async (req, res) => {
-  const caption = await getCaption();
+    // parse req
+  const googleVisionFoundWords = req;
+  const caption = await getCaption(googleVisionFoundWords);
   res.send(caption);
 });
 
