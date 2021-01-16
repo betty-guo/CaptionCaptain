@@ -5,8 +5,8 @@ const tblName = 'captions';
 
 const getCaption = async (words) => {
     // translate js array to sql
-    var sqlWordsArr = '(\'' + words.join('\',\'') + '\')';
-    console.log(sqlWordsArr);
+    var sqlWhereStmtEnd = words.map((x) => {return '\'%' +x + '%\''}).join(' or keyword like ');
+    console.log(sqlWhereStmtEnd);
 
     // keyword | caption
     // ------------------------------------
@@ -15,9 +15,12 @@ const getCaption = async (words) => {
     // ...
 
     // 1: first try to find rows with keywords in words given
-    results = await db.query('SELECT * FROM ' + tblName + ' WHERE keyword in ' + sqlWordsArr + ';');
+    const queryStr = 'SELECT * FROM ' + tblName + ' WHERE keyword like ' + sqlWhereStmtEnd + ';';
+    console.log(queryStr);
+    results = await db.query(queryStr);
+    console.log(results);
     //results = await db.query('SELECT * FROM ' + tblName + ';');
-    if (results != null) {  // if there were rows with those keywords
+    if (results.rowCount > 0) {  // if there were rows with those keywords
         return results.rows[0].quote;
     } else {
         // 2: query https://api.datamuse.com/words?ml=nose+ear+eyes+mouth+... and try to find rows with keywords from that output
