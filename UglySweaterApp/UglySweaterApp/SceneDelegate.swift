@@ -20,20 +20,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
         let mainVC = MainImageSelectorViewController()
-        let leaderBoardVC = UITableViewController()
-
-        let tabBarController = UITabBarController()
-
-        tabBarController.selectedIndex = 1
-
-        tabBarController.viewControllers = [mainVC, leaderBoardVC]
-        tabBarController.tabBar.items?[0].image = UIImage(systemName: "camera.on.rectangle.fill")
-        tabBarController.tabBar.items?[1].image = UIImage(systemName: "table.fill")
 
         let window = UIWindow(windowScene: windowScene)
 
+        let navigationController: UINavigationController = {
+            let navigationController = UINavigationController()
+            navigationController.viewControllers = [mainVC]
+            return navigationController
+        }()
 
-        window.rootViewController = tabBarController
+
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
     }

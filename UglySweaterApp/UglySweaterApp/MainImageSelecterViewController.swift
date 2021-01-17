@@ -11,12 +11,17 @@ import Firebase
 
 class MainImageSelectorViewController: UIViewController {
 
+    var currentImage: UIImage?
+
     var resultsText: [String] = [String]() {
         didSet {
-            print(resultsText)
+            guard !resultsText.isEmpty else { return }
             getCaption(for: getCaptionRequest(words: resultsText)) { [weak self] (result) in
                 switch result {
                 case .success(let response):
+                    DispatchQueue.main.async {
+                        self?.showImageAndCaption(response)
+                    }
                     return
                 case .failure(let error):
                     return
@@ -27,30 +32,48 @@ class MainImageSelectorViewController: UIViewController {
 
     lazy var vision = Vision.vision()
 
-    // Image counter.
-    var currentImage = 0
-
     var button: UIButton = {
         let button = UIButton()
         button.setTitle("Take an image", for: .normal)
-        button.addTarget(self, action: Selector(("getImage")), for: .touchUpInside)
+        button.addTarget(self, action: #selector(UIImagePickerController.takePicture), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .red
+        button.backgroundColor = .gray
+        button.frame = CGRect(x: 0, y: 0, width: 10, height: 60)
+        button.layer.masksToBounds = true
+        button.clipsToBounds = true
         return button
     }()
 
     var secondaryButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Get my ugly", for: .normal)
+        button.setTitle("Camera roll", for: .normal)
+        button.addTarget(self, action: Selector(("getImage")), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .gray
+        button.frame = CGRect(x: 0, y: 0, width: 10, height: 60)
+        button.layer.masksToBounds = true
+        button.clipsToBounds = true
+        return button
+    }()
+
+    var tertiaryButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Find me an AI caption!", for: .normal)
         button.addTarget(self, action: Selector(("nextPage")), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .blue
+        button.frame = CGRect(x: 0, y: 0, width: 10, height: 60)
+        button.layer.masksToBounds = true
+        button.clipsToBounds = true
         return button
     }()
 
     var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
@@ -66,10 +89,14 @@ class MainImageSelectorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setUpNavigationControllerBarButtonItem()
+
         self.view.addSubview(containerView)
+        self.containerView.addSubview(imageView)
+
         self.containerView.addSubview(button)
         self.containerView.addSubview(secondaryButton)
-        self.containerView.addSubview(imageView)
+        self.containerView.addSubview(tertiaryButton)
 
         NSLayoutConstraint.activate([
             containerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -79,27 +106,54 @@ class MainImageSelectorViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor),
-            button.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            button.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor)
+            imageView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 15),
+            imageView.topAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.topAnchor, constant: 15),
+            imageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -15),
+            imageView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -15)
         ])
 
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor),
-            imageView.topAnchor.constraint(equalTo: button.bottomAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor)
+            button.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            button.bottomAnchor.constraint(equalTo: tertiaryButton.topAnchor, constant: -10),
+            button.trailingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: -5),
+            button.heightAnchor.constraint(equalToConstant: button.frame.height)
         ])
 
         NSLayoutConstraint.activate([
-            secondaryButton.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor),
-            secondaryButton.topAnchor.constraint(equalTo: imageView .bottomAnchor),
-            secondaryButton.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor)
+            secondaryButton.leadingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 5),
+            secondaryButton.bottomAnchor.constraint(equalTo: tertiaryButton.topAnchor, constant: -10),
+            secondaryButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            secondaryButton.heightAnchor.constraint(equalToConstant: secondaryButton.frame.height)
         ])
+
+
+        NSLayoutConstraint.activate([
+            tertiaryButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            tertiaryButton.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            tertiaryButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            tertiaryButton.heightAnchor.constraint(equalToConstant: tertiaryButton.frame.height)
+        ])
+
+
+
+        button.layer.cornerRadius = 20
+        secondaryButton.layer.cornerRadius = 20
+        tertiaryButton.layer.cornerRadius = 20
+        imageView.layer.cornerRadius = 20
     }
 }
 
 extension MainImageSelectorViewController {
     @objc func getImage() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self;
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+    }
+
+    @objc func takePicture() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let imagePickerController = UIImagePickerController()
             imagePickerController.delegate = self;
@@ -107,6 +161,21 @@ extension MainImageSelectorViewController {
             self.present(imagePickerController, animated: true, completion: nil)
         }
     }
+
+    @objc func dismissDetailsVC() {
+        self.dismiss(animated: true)
+    }
+
+    func showImageAndCaption(_ caption: String) {
+        let vc = DetailsViewController(caption: caption, image: self.currentImage ?? UIImage())
+        let navController = UINavigationController(rootViewController: vc)
+        navController.navigationBar.setValue(true, forKey: "hidesShadow")
+        navController.title = "Settings"
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissDetailsVC))
+
+        self.navigationController!.present(navController, animated: true, completion: nil)
+    }
+    
 
     @objc func nextPage() {
         clearResults()
@@ -119,18 +188,33 @@ extension MainImageSelectorViewController {
 
         detectCloudLabels(image: imageView.image)
 
+
         detectCloudLandmarks(image: imageView.image)
     }
 
     func clearResults() {
         self.resultsText = []
     }
+
+    func setUpNavigationControllerBarButtonItem() {
+
+        let rightBarButtonItem: UIBarButtonItem = {
+            let bbi = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(openSettings))
+            return bbi
+        }()
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+
+    @objc func openSettings() {
+        return
+    }
 }
 
 extension MainImageSelectorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        image = ResizeImage(image!, targetSize: CGSize(width: view.frame.width, height: 400))
+        currentImage = image
+        //image = ResizeImage(image!, targetSize: CGSize(width: view.frame.width, height: 400))
         imageView.image = image
         self.dismiss(animated: true, completion: nil)
 
