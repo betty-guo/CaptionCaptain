@@ -11,19 +11,18 @@ struct getCaptionRequest: Codable {
     let words: [String]
 }
 
-struct getCaptionResponse: Codable {
-    let caption: String
-}
-
-func getCaption(for request: getCaptionRequest, completion: @escaping ((Result<getCaptionResponse, Error>) -> Void)) {
+func getCaption(for request: getCaptionRequest, completion: @escaping ((Result<String, Error>) -> Void)) {
 
 
     do {
         let jsonData = try JSONEncoder().encode(request)
-        //let jsonString = String(data: jsonData, encoding: .utf8)!
+        let jsonString = String(data: jsonData, encoding: .utf8)!
+        print(jsonString)
 
-        var urlRequest = URLRequest(url: URL(string: "https://endpoint")!)
+        var urlRequest = URLRequest(url: URL(string: "https://cc-backend-iq3v3yeavq-uk.a.run.app/caption")!)
         urlRequest.httpBody = jsonData
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
@@ -33,14 +32,9 @@ func getCaption(for request: getCaptionRequest, completion: @escaping ((Result<g
 
             guard let data = data else { return }
 
-            do {
-                let decoder = JSONDecoder()
-
-                let response = try decoder.decode(getCaptionResponse.self, from: data)
-                print(response)
-                completion(Result.success(response))
-            } catch let error {
-                print(error.localizedDescription)
+            if let value = String(bytes: data, encoding: .utf8){
+                completion(Result.success(value))
+            } else {
                 return
             }
         }
