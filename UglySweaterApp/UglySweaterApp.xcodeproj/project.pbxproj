@@ -20,6 +20,7 @@
 		0BD2A83E25B3683D001081C2 /* MLKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD2A83D25B3683D001081C2 /* MLKitExtension.swift */; };
 		0BD2A84625B3691D001081C2 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD2A84525B3691D001081C2 /* UIUtilities.swift */; };
 		0BD2A87725B3903B001081C2 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD2A87625B3903B001081C2 /* URLService.swift */; };
+		0BD2A8CD25B40C31001081C2 /* 38afa068-8799-4041-b34b-6c36410cbcbd_200x200.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BD2A8CC25B40C31001081C2 /* 38afa068-8799-4041-b34b-6c36410cbcbd_200x200.png */; };
 		0C88C148664C445E711BB738 /* Pods_UglySweaterApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D024BC637C72A0A03086BC7 /* Pods_UglySweaterApp.framework */; };
 		133467919F858034DA4EC5D8 /* Pods_UglySweaterApp_UglySweaterAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E76BE04E8EB082F033AAAC6 /* Pods_UglySweaterApp_UglySweaterAppUITests.framework */; };
 		676776E84F304AE338BEEE38 /* Pods_UglySweaterAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C518D3D5E7F9F4A8EFDEDE7 /* Pods_UglySweaterAppTests.framework */; };
@@ -58,6 +59,7 @@
 		0BD2A83D25B3683D001081C2 /* MLKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitExtension.swift; sourceTree = "<group>"; };
 		0BD2A84525B3691D001081C2 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		0BD2A87625B3903B001081C2 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
+		0BD2A8CC25B40C31001081C2 /* 38afa068-8799-4041-b34b-6c36410cbcbd_200x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38afa068-8799-4041-b34b-6c36410cbcbd_200x200.png"; sourceTree = "<group>"; };
 		18CDC2DDD91E4C2E0FF1631E /* Pods-UglySweaterApp-UglySweaterAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UglySweaterApp-UglySweaterAppUITests.release.xcconfig"; path = "Target Support Files/Pods-UglySweaterApp-UglySweaterAppUITests/Pods-UglySweaterApp-UglySweaterAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1C518D3D5E7F9F4A8EFDEDE7 /* Pods_UglySweaterAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UglySweaterAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D024BC637C72A0A03086BC7 /* Pods_UglySweaterApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UglySweaterApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				0B10861D25B29F1900DBE05C /* ViewController.swift */,
 				0BD2A87625B3903B001081C2 /* URLService.swift */,
 				0B10862525B29F1B00DBE05C /* Assets.xcassets */,
+				0BD2A8CC25B40C31001081C2 /* 38afa068-8799-4041-b34b-6c36410cbcbd_200x200.png */,
 				0B10862725B29F1B00DBE05C /* LaunchScreen.storyboard */,
 				0B10862A25B29F1B00DBE05C /* Info.plist */,
 				0B10862225B29F1900DBE05C /* UglySweaterApp.xcdatamodeld */,
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B10862925B29F1B00DBE05C /* LaunchScreen.storyboard in Resources */,
+				0BD2A8CD25B40C31001081C2 /* 38afa068-8799-4041-b34b-6c36410cbcbd_200x200.png in Resources */,
 				0B10862625B29F1B00DBE05C /* Assets.xcassets in Resources */,
 				0B10866625B3551C00DBE05C /* GoogleService-Info.plist in Resources */,
 			);
@@ -583,7 +587,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cristianPalage.UglySweaterApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -603,7 +607,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cristianPalage.UglySweaterApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

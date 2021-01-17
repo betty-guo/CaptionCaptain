@@ -12,21 +12,11 @@ import Firebase
 class MainImageSelectorViewController: UIViewController {
 
     var currentImage: UIImage?
+    var currentQuote: String?
 
     var resultsText: [String] = [String]() {
         didSet {
-            guard !resultsText.isEmpty else { return }
-            getCaption(for: getCaptionRequest(words: resultsText)) { [weak self] (result) in
-                switch result {
-                case .success(let response):
-                    DispatchQueue.main.async {
-                        self?.showImageAndCaption(response)
-                    }
-                    return
-                case .failure(let error):
-                    return
-                }
-            }
+            queryBackEnd()
         }
     }
 
@@ -167,7 +157,7 @@ extension MainImageSelectorViewController {
     }
 
     func showImageAndCaption(_ caption: String) {
-        let vc = DetailsViewController(caption: caption, image: self.currentImage ?? UIImage())
+        let vc = DetailsViewController(caption: caption, image: self.currentImage ?? UIImage(), keys: resultsText)
         let navController = UINavigationController(rootViewController: vc)
         navController.navigationBar.setValue(true, forKey: "hidesShadow")
         navController.title = "Settings"
@@ -175,7 +165,6 @@ extension MainImageSelectorViewController {
 
         self.navigationController!.present(navController, animated: true, completion: nil)
     }
-    
 
     @objc func nextPage() {
         clearResults()
@@ -208,6 +197,24 @@ extension MainImageSelectorViewController {
     @objc func openSettings() {
         return
     }
+
+    func queryBackEnd() {
+        guard !resultsText.isEmpty else { return }
+        getCaption(for: getCaptionRequest(words: resultsText)) { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self?.currentQuote = response
+                    self?.showImageAndCaption(response)
+                }
+                return
+            case .failure(let error):
+                return
+            }
+        }
+    }
+
+    
 }
 
 extension MainImageSelectorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

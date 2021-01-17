@@ -11,12 +11,14 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    let caption: String
+    var caption: String
+    let keys: [String]
     let image: UIImage
 
-    init(caption: String, image: UIImage) {
+    init(caption: String, image: UIImage, keys: [String]) {
         self.caption = caption
         self.image = image
+        self.keys = keys
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -50,6 +52,30 @@ class DetailsViewController: UIViewController {
         return imageView
     }()
 
+    var randomButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Random Caption", for: .normal)
+        button.addTarget(self, action: Selector(("randomCaption")), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.frame = CGRect(x: 0, y: 0, width: 10, height: 60)
+        button.layer.masksToBounds = true
+        button.clipsToBounds = true
+        return button
+    }()
+
+    var tryAgainButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Try again", for: .normal)
+        button.addTarget(self, action: Selector(("tryAgain")), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.frame = CGRect(x: 0, y: 0, width: 10, height: 60)
+        button.layer.masksToBounds = true
+        button.clipsToBounds = true
+        return button
+    }()
+
 
     override func viewDidLoad() {
 
@@ -58,6 +84,8 @@ class DetailsViewController: UIViewController {
         self.view.addSubview(containerView)
         containerView.addSubview(textView)
         containerView.addSubview(imageView)
+        containerView.addSubview(randomButton)
+        containerView.addSubview(tryAgainButton)
 
         imageView.image = image
         textView.text = caption
@@ -70,12 +98,21 @@ class DetailsViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
+            randomButton.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 15),
+            randomButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -15)
+        ])
+
+        NSLayoutConstraint.activate([
+            tryAgainButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -15),
+            tryAgainButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -15)
+        ])
+
+        NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 15),
             imageView.topAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.topAnchor, constant: 15),
             imageView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -15),
             imageView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.centerYAnchor)
         ])
-
 
         NSLayoutConstraint.activate([
             textView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
@@ -88,8 +125,38 @@ class DetailsViewController: UIViewController {
         imageView.layer.cornerRadius = 20
     }
 
+    @objc func randomCaption() {
+        getCaption(for: getCaptionRequest(words: ["funny"])) { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async { [self] in
+                    self?.caption = response
+                    self?.textView.text = response
+                }
+                return
+            case .failure(let error):
+                return
+            }
+        }
+    }
 
+    @objc func tryAgain() {
+        getCaption(for: getCaptionRequest(words: keys)) { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self?.caption = response
+                    self?.textView.text = response
+                }
+                return
+            case .failure(let error):
+                return
+            }
+        }
+    }
 }
+
+
 
 
 
