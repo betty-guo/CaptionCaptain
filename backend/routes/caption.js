@@ -4,9 +4,10 @@ const { getCaption } = require("../db/caption");
 
 router.post("/", async (req, res) => {
     // parse req
-  const googleVisionFoundWords = req.body.words;
-  console.log(req);
-  const caption = await getCaption(googleVisionFoundWords);
+  const imageWords = req.body.words;
+  console.log("got request... words:");
+  console.log(imageWords);
+  const caption = await getCaption(imageWords);
   res.send(caption);
 });
 
