@@ -24,7 +24,7 @@ const getCaption = async (words) => {
     console.log(results);
     //results = await db.query('SELECT * FROM ' + tblName + ';');
     if (results.rowCount > 0) {  // if there were rows with those keywords
-        return JSON.parse('{ "caption" : "' + results.rows[0].quote + '"}');
+        return results.rows[0].quote;
     }
     // 2: synonymSearch
     const queryStrSynonyms = 'SELECT * FROM ' + tblNameSynonyms + ' WHERE word like ' + sqlWhereStmtEnd + ';';
@@ -38,13 +38,13 @@ const getCaption = async (words) => {
         results2 = await db.query(queryStr2);
         console.log(results2);
         if (results2.rowCount > 0) {
-            return JSON.parse('{ "caption" : "' + results2.rows[0].quote + '"}');
+            return results2.rows[0].quote;
         }
         
     }
 
     // default
-    return JSON.parse('{ "caption" : "Say Cheese!"}');
+    return "Say cheese~";
 }
 
 module.exports = { getCaption };

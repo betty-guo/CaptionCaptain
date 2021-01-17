@@ -1,6 +1,6 @@
 import requests
 # Insert your pipeline token here
-TOKEN = "g8XxpbvgGwgHda2AXV6NRh"
+TOKEN = "3wZxVkPsYpvLQdwZFM3xEx"
 # This function helps with getting the status of the job
 
 def get_status(job_id):
@@ -33,7 +33,7 @@ def upload_file_via_presigned_url():
     job_id = r.json()["job_id"] # Job_id to see the status of the pipeline once the file is uploaded
     
     # Now we upload the file
-    r = requests.put(presigned_url, data=open('NHkJR6qjRu8kkRSk8zHiGt.csv', 'rb')) # replace NHkJR6qjRu8kkRSk8zHiGt.csv with your file
+    r = requests.put(presigned_url, data=open('filterquotes.csv', 'rb')) # replace NHkJR6qjRu8kkRSk8zHiGt.csv with your file
     if(r.status_code != 200): # Failed to upload and run pipeline
         print(r.status_code)
         print(r.json())
