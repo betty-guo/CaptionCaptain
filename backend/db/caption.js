@@ -1,12 +1,15 @@
 const db = require('../db');
 var http = require("http");
 
-const tblName = 'captions';
+const tblNameCaptions = 'captions';
+const tblNameKeywords = 'keywords';
+const tblNameSynonyms = 'associatedwords';
+
 
 const getCaption = async (words) => {
     // translate js array to sql
-    var sqlWordsArr = '(\'' + words.join('\',\'') + '\')';
-    console.log(sqlWordsArr);
+    var sqlWhereStmtEnd = words.map((x) => {return '\'%' +x + '%\''}).join(' or keyword like ');
+    console.log(sqlWhereStmtEnd);
 
     // keyword | caption
     // ------------------------------------
@@ -15,23 +18,33 @@ const getCaption = async (words) => {
     // ...
 
     // 1: first try to find rows with keywords in words given
-    results = await db.query('SELECT * FROM ' + tblName + ' WHERE keyword in ' + sqlWordsArr + ';');
+    const queryStr = 'SELECT * FROM ' + tblNameCaptions + ' WHERE keyword like ' + sqlWhereStmtEnd + ';';
+    console.log(queryStr);
+    results = await db.query(queryStr);
+    console.log(results);
     //results = await db.query('SELECT * FROM ' + tblName + ';');
-    if (results != null) {  // if there were rows with those keywords
+    if (results.rowCount > 0) {  // if there were rows with those keywords
         return results.rows[0].quote;
-    } else {
-        // 2: query https://api.datamuse.com/words?ml=nose+ear+eyes+mouth+... and try to find rows with keywords from that output
-        var options = {
-            host: "https://api.datamuse.com",
-            port: 80,
-            path: '/words?ml=' + words.join('+'),
-            method: 'GET'
-        }
-        // synonomSearch = await http.request
     }
-    // 3: synonymSearch
-    
-    return "Empty";
+    // 2: synonymSearch
+    const queryStrSynonyms = 'SELECT * FROM ' + tblNameSynonyms + ' WHERE word like ' + sqlWhereStmtEnd + ';';
+    console.log(queryStrSynonyms);
+    results = await db.query(queryStrSynonyms);
+    console.log(results);
+
+    if (results.rowCount > 0) {  // if there were rows with those associated words
+        const queryStr2 = 'SELECT * FROM ' + tblNameCaptions + ' WHERE keyword like \'%' + results.rows[0].keyword + '%\';';
+        console.log(queryStr2);
+        results2 = await db.query(queryStr2);
+        console.log(results2);
+        if (results2.rowCount > 0) {
+            return results2.rows[0].quote;
+        }
+        
+    }
+
+    // default
+    return "Say cheese~";
 }
 
 module.exports = { getCaption };
