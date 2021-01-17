@@ -57,9 +57,40 @@ const revDictSearch = async (words) => {
     if (synonymSearchRes) { return synonymSearchRes; }
 }
 
+const searchAlgo = async (words) => {
+    const sqlWhereStmtEnd = words.map((x) => { return '\'% ' + x + ' %\'' }).join(' or quote like ');
+    const queryStrBasicSearch = 'SELECT * FROM ' + tblNameCaptions + ' WHERE quote like ' + sqlWhereStmtEnd + ';';
+
+    const results = await db.query(queryStrBasicSearch);
+    console.log(results);
+    if (results.rowCount > 0) {  // if there were rows with those associated words
+        var scoredResults = results.rows.map((wordObj) => {
+            var tempRow = wordObj;
+            tempRow.score = 0.0;
+            const quoteArr = tempRow.quote.split(" ");
+            quoteArr.forEach(wordInQuote => {
+                words.forEach(wordInSearch => {
+                    const word1 = wordInSearch.toLower().replace(/[(?:\r\n|\r|\n|\t), ]/g, '');
+                    const word2 = wordInQuote.toLower().replace(/[(?:\r\n|\r|\n|\t), ]/g, '');
+                    console.log(word1 + " " + word1)
+                    if(word1 == word2) {
+                        tempRow.score += (1 / words.length);
+                    }
+                });
+            });
+            return tempRow;
+        });
+        scoredResults.sort(util.compareQuoteObj);
+        console.log(scoredResults);
+        var rowCount = 5; // get from the top five rows
+        if (scoredResults.rowCount < rowCount) { rowCount = scoredResults.rowCount; }
+        return scoredResults.slice(0, rowCount)[util.getRandIdx(rowCount/2)].quote;
+    }
+}
+
 const getCaption = async (words) => {
     // translate js array to sql
-
+    
     // 1: first try to find rows with keywords in words given
     const keyWordsSearchRes = await keyWordsSearch(words);
     if (keyWordsSearchRes !== null) {
@@ -74,8 +105,11 @@ const getCaption = async (words) => {
     // 3: do a reverse dictionary aggregation of all the words, then try that:
     const revDictSearchRes = await revDictSearch(words);
     if (revDictSearchRes) { return revDictSearchRes; }
+    
+    // default... a search algo on all quotes
+    const searchAlgoRes = await searchAlgo(words.slice(0, 5));
+    if (searchAlgoRes) { return searchAlgoRes; }
 
-    // default
     return "Say cheese~";
 }
 
